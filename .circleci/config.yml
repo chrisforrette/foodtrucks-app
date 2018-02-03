@@ -16,6 +16,7 @@ jobs:
             - node_modules
           key: npm-v1-{{ checksum "package.json" }}
   deploy-staging:
+    machine: true
     working_directory: ~/app
     steps:
       - checkout
@@ -25,6 +26,7 @@ jobs:
             - "6a:d9:f2:5e:27:47:b3:c1:5c:cf:25:8e:48:da:fe:11"
       - run: make deploy ENV="staging"
   deploy-production:
+    machine: true
     working_directory: ~/app
     steps:
       - checkout
