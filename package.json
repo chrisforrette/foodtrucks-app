@@ -41,6 +41,13 @@
     "snazzy": "^7.0.0",
     "standard": "^10.0.3"
   },
+  "standard": {
+    "globals": [
+      "it",
+      "fetch",
+      "URL"
+    ]
+  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
