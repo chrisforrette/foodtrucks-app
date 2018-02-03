@@ -4,10 +4,9 @@ HEROKU_AUTH_TOKEN?=$(shell heroku auth:token)
 HEROKU_EMAIL?=$(shell heroku whoami)
 
 deploy:
-	# Requires `ENV` and `TAG` variables
-	# Example: `make deploy ENV="staging" TAG="2.0.5"`
+	# Requires `ENV` variable
+	# Example: `make deploy ENV="staging"`
 	@test "${ENV}" || (echo '$$ENV variable required' && exit 1)
-	@test "${TAG}" || (echo '$$TAG variable required' && exit 1)
 	HEROKU_APP="${ENV}-food-trucks-app" scripts/deploy.sh;
 
 plan:
