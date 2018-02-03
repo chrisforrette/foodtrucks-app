@@ -24,6 +24,7 @@
     "styled-components": "^3.1.5"
   },
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

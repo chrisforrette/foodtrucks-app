@@ -63,3 +63,7 @@ typings/
 *.tfplan
 *.tfstate
 *.tfstate.backup
+
+# Build
+
+build
