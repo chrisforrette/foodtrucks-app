@@ -46,7 +46,7 @@ workflows:
             - test
           filters:
             branches:
-              only: master
+              only: setup
             tags:
               ignore: /.*/
       - deploy-production:
