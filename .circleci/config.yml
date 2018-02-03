@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           key: npm-v1-{{ checksum "package.json" }}
       - run: npm i
-      - run: npm lint
+      - run: npm run lint
       - run: npm test -- --coverage
       - save_cache:
           paths:
