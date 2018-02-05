@@ -14,12 +14,8 @@ const fontHelveticaLight = '"HelveticaNeue-Light", "Helvetica Neue Light", "Helv
 const fontHelveticaBold = '"HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, sans-serif'
 
 export const fonts = {
-  heading: {
-    primary: fontHelveticaBold
-  },
-  body: {
-    primary: fontHelveticaLight
-  }
+  heading: fontHelveticaBold,
+  body: fontHelveticaLight
 }
 
 // Colors
