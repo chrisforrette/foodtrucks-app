@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<ThemeProvider
+  theme={
+    Object {
+      "breakpoints": Object {
+        "large": "1200px",
+        "medium": "900px",
+        "small": "600px",
+        "xlarge": "1800px",
+      },
+      "colors": Object {
+        "blue": "#41a6f4",
+        "darkGrey": "#333",
+        "grey": "#999",
+        "lightGrey": "#eee",
+      },
+      "fonts": Object {
+        "body": "\\"HelveticaNeue-Light\\", \\"Helvetica Neue Light\\", \\"Helvetica Neue\\", Helvetica, Arial, sans-serif",
+        "heading": "\\"HelveticaNeue-Bold\\", \\"Helvetica Neue Bold\\", \\"Helvetica Neue\\", Helvetica, Arial, sans-serif",
+      },
+    }
+  }
+>
+  <styled.div>
+    <Connect(Component) />
+    <FoodTruckFinder
+      foodTrucks={Array []}
+    />
+    <Component
+      detailFoodTruckId={123}
+      detailViewOpen={false}
+      dispatch={[Function]}
+      foodTrucks={Array []}
+    />
+  </styled.div>
+</ThemeProvider>
+`;
