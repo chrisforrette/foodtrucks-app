@@ -27,10 +27,10 @@ export class AppComponent extends Component {
     const {
       dispatch,
       foodTrucks,
-      // boundingBox
+      mapBoundingBox
     } = this.props
 
-    if (!foodTrucks) {
+    if (!foodTrucks && mapBoundingBox) {
       dispatch(fetchFoodTrucks())
     }
   }
@@ -53,6 +53,6 @@ AppComponent.propTypes = {
 }
 
 export default connect(
-  ({ foodTrucks, boundingBox }) => ({ foodTrucks, boundingBox }),
+  ({ foodTrucks, mapBoundingBox }) => ({ foodTrucks, mapBoundingBox }),
   dispatch => ({ dispatch })
 )(AppComponent)

@@ -5,21 +5,21 @@ import {
   FETCH_FOOD_TRUCKS,
   FETCH_FOOD_TRUCKS_SUCCESS,
   FETCH_FOOD_TRUCKS_ERROR,
-  CHANGE_BOUNDING_BOX
+  CHANGE_BOUNDS
 } from './constants'
 
 const FOOD_TRUCKS_URL = `${API_URL}/food-trucks`
 
 export const fetchFoodTrucks = () => (dispatch, getState) => {
-  const { boundingBox } = getState()
+  const { mapBoundingBox } = getState()
   let queryString = ''
 
-  if (boundingBox) {
-    const queryString = '?' + qs.stringify({
-      neLatitude: boundingBox.ne.lat,
-      neLongitude: boundingBox.ne.lng,
-      seLatitude: boundingBox.se.lat,
-      seLongitude: boundingBox.se.lng,
+  if (mapBoundingBox) {
+    queryString = '?' + qs.stringify({
+      neLatitude: mapBoundingBox.ne.lat,
+      neLongitude: mapBoundingBox.ne.lng,
+      seLatitude: mapBoundingBox.se.lat,
+      seLongitude: mapBoundingBox.se.lng,
     })
   }
 
@@ -48,7 +48,7 @@ export const fetchFoodTrucksError = error => ({
   data: error
 })
 
-export const changeBoundingBox = box => ({
-  type: CHANGE_BOUNDING_BOX,
-  data: box
+export const changeBounds = data => ({
+  type: CHANGE_BOUNDS,
+  data
 })

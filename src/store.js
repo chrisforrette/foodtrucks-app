@@ -4,11 +4,24 @@ import {
   compose
 } from 'redux'
 import thunk from 'redux-thunk'
-import persistState from 'redux-localstorage'
+// import persistState from 'redux-localstorage'
 import { ENV } from './config'
 import reducer from './reducer'
 
-const initialState = {}
+const DEFAULT_CENTER = {
+  // San Francisco-ish
+  lat: 37.7749,
+  lng: -122.4194
+}
+
+const initialState = {
+  loading: false,
+  foodTrucks: null,
+  mapBoundingBox: null,
+  mapZoom: 12,
+  mapCenter: DEFAULT_CENTER,
+  mapBoundsChanged: false
+}
 
 // Configure enhancers
 

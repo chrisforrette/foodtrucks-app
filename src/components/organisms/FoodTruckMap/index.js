@@ -8,17 +8,7 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps'
-import { changeBoundingBox } from '../../../actions'
-
-/**
- * Default center position of the map, indicated with `lat` and `lng` keys
- * @type {object}
- */
-const DEFAULT_CENTER = {
-  // San Francisco-ish
-  lat: 37.7749,
-  lng: -122.4194
-}
+import { changeBounds } from '../../../actions'
 
 export class FoodTruckFinder extends Component {
   constructor () {
@@ -26,17 +16,24 @@ export class FoodTruckFinder extends Component {
     this.googleMap = null
     this.onMapMounted = this.onMapMounted.bind(this)
     this.onBoundsChanged = debounce(this.onBoundsChanged.bind(this), 250)
+    this.fitMapBounds = debounce(this.fitMapBounds.bind(this), 250, { leading: true, trailing: false})
   }
 
   render () {
-    const { foodTrucks } = this.props
+    const {
+      foodTrucks,
+      mapZoom,
+      mapCenter
+    } = this.props
+
     return <GoogleMap
       ref={this.onMapMounted}
       options={{ mapTypeControl: false }}
-      defaultZoom={12}
-      defaultCenter={DEFAULT_CENTER}
+      defaultZoom={mapZoom}
+      defaultCenter={mapCenter}
       onBoundsChanged={this.onBoundsChanged}>
-        { foodTrucks.map(foodTruck => <Marker
+        { foodTrucks
+          ? foodTrucks.map(foodTruck => <Marker
           key={foodTruck.id}
           defaultTitle={foodTruck.attributes.name}
           onClick={() => console.log(foodTruck.attributes.latitude, foodTruck.attributes.longitude)}
@@ -44,19 +41,50 @@ export class FoodTruckFinder extends Component {
             lat: foodTruck.attributes.latitude,
             lng: foodTruck.attributes.longitude,
           }}/>)
+          : null
         }
       </GoogleMap>
   }
 
-  onMapMounted (ref) {
-    // Store the raw Google map instance
+  componentDidMount () {
+    this.fitMapBounds()
+  }
 
+  onMapMounted (ref) {
+    console.log('onMapMounted')
+    // Store the raw Google map instance
     this.googleMap = ref
+    if (ref) {
+      console.log('bounds', this.googleMap.getBounds())
+    }
+    this.fitMapBounds()
+  }
+
+  onBoundsChanged () {
+    const { dispatch } = this.props
+    dispatch(changeBounds({
+      mapZoom: this.googleMap.getZoom(),
+      mapCenter: this.googleMap.getCenter().toJSON(),
+      mapBoundingBox: {
+        ne: this.googleMap.getBounds().getNorthEast().toJSON(),
+        se: this.googleMap.getBounds().getSouthWest().toJSON()
+      }
+    }))
+  }
+
+  onMarkerClick () {
+
+  }
+
+  fitMapBounds () {
+    // Gather all the food truck points and fit the bounds of the map around them
+
+    const { foodTrucks } = this.props
 
     // Gather all the food truck points and fit the bounds of the map around them
 
-    if (this.googleMap) {
-      const { foodTrucks } = this.props
+    if (this.googleMap && foodTrucks) {
+      
       const bounds = new google.maps.LatLngBounds() // eslint-disable-line
       foodTrucks.forEach(foodTruck => {
         bounds.extend(
@@ -66,25 +94,14 @@ export class FoodTruckFinder extends Component {
       this.googleMap.fitBounds(bounds)
     }
   }
-
-  onBoundsChanged () {
-    const { dispatch } = this.props
-    dispatch(changeBoundingBox({
-      ne: this.googleMap.getBounds().getNorthEast().toJSON(),
-      se: this.googleMap.getBounds().getSouthWest().toJSON()
-    }))
-  }
-
-  onMarkerClick () {
-
-  }
 }
 
 FoodTruckFinder.propTypes = {
-  foodTrucks: PropTypes.array
+  foodTrucks: PropTypes.array,
+  dispatch: PropTypes.func
 }
 
 export default connect(
-  ({ foodTrucks }) => ({ foodTrucks }),
+  ({ foodTrucks, mapZoom, mapCenter }) => ({ foodTrucks, mapZoom, mapCenter }),
   dispatch => ({ dispatch })
 )(withScriptjs(withGoogleMap(FoodTruckFinder)))

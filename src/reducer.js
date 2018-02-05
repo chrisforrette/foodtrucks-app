@@ -2,17 +2,11 @@ import {
   FETCH_FOOD_TRUCKS,
   FETCH_FOOD_TRUCKS_SUCCESS,
   FETCH_FOOD_TRUCKS_ERROR,
-  CHANGE_BOUNDING_BOX
+  CHANGE_BOUNDS
 } from './constants'
 
-const initialState = {
-  loading: false,
-  foodTrucks: null,
-  boundingBox: null,
-  boundingBoxChanged: false
-}
-
-export default (state = initialState, action) => {
+export default function (state, action) {
+  console.log('reducer', state)
   switch (action.type) {
     case FETCH_FOOD_TRUCKS:
       return {
@@ -23,7 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        boundingBoxChanged: false,
+        mapBoundsChanged: false,
         foodTrucks: action.data.data
       }
     case FETCH_FOOD_TRUCKS_ERROR:
@@ -31,10 +25,11 @@ export default (state = initialState, action) => {
         ...state,
         loading: false
       }
-    case CHANGE_BOUNDING_BOX:
+    case CHANGE_BOUNDS:
       return {
         ...state,
-        boundingBoxChanged: true
+        ...action.data,
+        mapBoundsChanged: true
       }
     default:
       return state
