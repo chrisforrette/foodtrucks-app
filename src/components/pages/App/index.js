@@ -8,9 +8,11 @@ import {
 import { fetchFoodTrucks } from '../../../actions'
 import theme from '../../../styles/theme'
 import Header from '../../molecules/Header'
+import FoodTruckDetail from '../../molecules/FoodTruckDetail'
 import FoodTruckFinder from '../../organisms/FoodTruckFinder'
 
 const AppWrapper = styled.div`
+  color: ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   flex-direction: column;
   font-family: ${({ theme }) => theme.fonts.body};
@@ -36,12 +38,22 @@ export class AppComponent extends Component {
   }
 
   render () {
-    const { foodTrucks } = this.props
+    const {
+      dispatch,
+      foodTrucks,
+      detailViewOpen,
+      detailFoodTruckId
+    } = this.props
 
     return <ThemeProvider theme={theme}>
       <AppWrapper>
         <Header />
         <FoodTruckFinder foodTrucks={foodTrucks} />
+        <FoodTruckDetail
+          dispatch={dispatch}
+          foodTrucks={foodTrucks}
+          detailViewOpen={detailViewOpen}
+          detailFoodTruckId={detailFoodTruckId} />
       </AppWrapper>
     </ThemeProvider>
   }
@@ -53,6 +65,6 @@ AppComponent.propTypes = {
 }
 
 export default connect(
-  ({ foodTrucks, mapBoundingBox }) => ({ foodTrucks, mapBoundingBox }),
+  ({ foodTrucks, mapBoundingBox, detailViewOpen, detailFoodTruckId }) => ({ foodTrucks, mapBoundingBox, detailViewOpen, detailFoodTruckId }),
   dispatch => ({ dispatch })
 )(AppComponent)

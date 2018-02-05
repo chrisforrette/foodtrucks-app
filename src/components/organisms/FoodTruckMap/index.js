@@ -8,7 +8,10 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps'
-import { changeBounds } from '../../../actions'
+import {
+  changeBounds,
+  showFoodTruckDetail
+} from '../../../actions'
 
 export class FoodTruckFinder extends Component {
   constructor () {
@@ -21,6 +24,7 @@ export class FoodTruckFinder extends Component {
 
   render () {
     const {
+      dispatch,
       foodTrucks,
       mapZoom,
       mapCenter
@@ -36,7 +40,7 @@ export class FoodTruckFinder extends Component {
           ? foodTrucks.map(foodTruck => <Marker
           key={foodTruck.id}
           defaultTitle={foodTruck.attributes.name}
-          onClick={() => console.log(foodTruck.attributes.latitude, foodTruck.attributes.longitude)}
+          onClick={() => dispatch(showFoodTruckDetail(foodTruck.id))}
           position={{
             lat: foodTruck.attributes.latitude,
             lng: foodTruck.attributes.longitude,

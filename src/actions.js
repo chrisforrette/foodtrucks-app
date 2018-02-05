@@ -5,7 +5,9 @@ import {
   FETCH_FOOD_TRUCKS,
   FETCH_FOOD_TRUCKS_SUCCESS,
   FETCH_FOOD_TRUCKS_ERROR,
-  CHANGE_BOUNDS
+  CHANGE_BOUNDS,
+  SHOW_FOOD_TRUCK_DETAIL,
+  CLOSE_FOOD_TRUCK_DETAIL
 } from './constants'
 
 const FOOD_TRUCKS_URL = `${API_URL}/food-trucks`
@@ -52,3 +54,10 @@ export const changeBounds = data => ({
   type: CHANGE_BOUNDS,
   data
 })
+
+export const showFoodTruckDetail = id => ({
+  type: SHOW_FOOD_TRUCK_DETAIL,
+  id
+})
+
+export const closeFoodTruckDetail = () => ({ type: CLOSE_FOOD_TRUCK_DETAIL })

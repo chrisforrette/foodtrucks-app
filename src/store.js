@@ -19,7 +19,9 @@ const initialState = {
   mapBoundingBox: null,
   mapZoom: 16,
   mapCenter: DEFAULT_CENTER,
-  mapBoundsChanged: false
+  mapBoundsChanged: false,
+  detailViewOpen: true,
+  detailFoodTruckId: null
 }
 
 // Configure enhancers
