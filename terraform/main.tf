@@ -46,9 +46,9 @@ resource "heroku_app" "server" {
     "https://github.com/heroku/heroku-buildpack-static.git"
   ]
   config_vars {
-    API_URL = "https://${var.environment}-food-trucks-api.herokuapp.com/"
     NODE_ENV = "${var.environment}"
     PUBLIC_URL = "https://${var.environment}-food-trucks-app.herokuapp.com/"
+    REACT_APP_API_URL = "https://${var.environment}-food-trucks-api.herokuapp.com/"
   }
 }
 

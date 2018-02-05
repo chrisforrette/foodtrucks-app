@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(LoadingIndicator)
+      fade={true}
+      isLoading={false}
+    />
+    <styled.h1>
+      Food Truck Finder
+    </styled.h1>
+  </styled.div>
+  <styled.div>
+    <Component
+      disabled={false}
+      hide={true}
+      onClick={[Function]}
+    >
+      Search This Area
+    </Component>
+  </styled.div>
+</styled.header>
+`;
+
+exports[`should render a loading state 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(LoadingIndicator)
+      fade={true}
+      isLoading={true}
+    />
+    <styled.h1>
+      Food Truck Finder
+    </styled.h1>
+  </styled.div>
+  <styled.div>
+    <Component
+      disabled={true}
+      hide={true}
+      onClick={[Function]}
+    >
+      Search This Area
+    </Component>
+  </styled.div>
+</styled.header>
+`;
+
+exports[`should render visibly when map bounds are changed 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(LoadingIndicator)
+      fade={true}
+      isLoading={false}
+    />
+    <styled.h1>
+      Food Truck Finder
+    </styled.h1>
+  </styled.div>
+  <styled.div>
+    <Component
+      disabled={false}
+      hide={false}
+      onClick={[Function]}
+    >
+      Search This Area
+    </Component>
+  </styled.div>
+</styled.header>
+`;
