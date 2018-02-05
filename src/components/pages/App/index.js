@@ -7,7 +7,7 @@ import {
 } from 'styled-components'
 import { fetchFoodTrucks } from '../../../actions'
 import theme from '../../../styles/theme'
-import Header from '../../atoms/Header'
+import Header from '../../molecules/Header'
 import FoodTruckFinder from '../../organisms/FoodTruckFinder'
 
 const AppWrapper = styled.div`
@@ -23,12 +23,13 @@ const AppWrapper = styled.div`
 `
 
 export class AppComponent extends Component {
-  componentDidMount () {
+  componentWillReceiveProps (nextProps) {
+    console.log('componentWillReceiveProps')
     const {
       dispatch,
       foodTrucks,
       mapBoundingBox
-    } = this.props
+    } = nextProps
 
     if (!foodTrucks && mapBoundingBox) {
       dispatch(fetchFoodTrucks())
@@ -36,6 +37,7 @@ export class AppComponent extends Component {
   }
 
   render () {
+    console.log('render')
     const { foodTrucks } = this.props
 
     return <ThemeProvider theme={theme}>

@@ -5,8 +5,9 @@ import {
   CHANGE_BOUNDS
 } from './constants'
 
+let boundsChanges = 0
+
 export default function (state, action) {
-  console.log('reducer', state)
   switch (action.type) {
     case FETCH_FOOD_TRUCKS:
       return {
@@ -26,10 +27,12 @@ export default function (state, action) {
         loading: false
       }
     case CHANGE_BOUNDS:
+      boundsChanges++
       return {
         ...state,
         ...action.data,
-        mapBoundsChanged: true
+        // Don't trigger this on the first call, since it happens on load
+        mapBoundsChanged: boundsChanges > 1
       }
     default:
       return state

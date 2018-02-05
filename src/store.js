@@ -4,7 +4,6 @@ import {
   compose
 } from 'redux'
 import thunk from 'redux-thunk'
-// import persistState from 'redux-localstorage'
 import { ENV } from './config'
 import reducer from './reducer'
 
@@ -25,12 +24,7 @@ const initialState = {
 
 // Configure enhancers
 
-const enhancers = [
-  // persistState(
-  //   ['foodTrucks'],
-  //   { key: 'foodtrucks' }
-  // )
-]
+const enhancers = []
 
 // Dev tools
 

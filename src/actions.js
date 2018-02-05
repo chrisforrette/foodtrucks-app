@@ -18,8 +18,8 @@ export const fetchFoodTrucks = () => (dispatch, getState) => {
     queryString = '?' + qs.stringify({
       neLatitude: mapBoundingBox.ne.lat,
       neLongitude: mapBoundingBox.ne.lng,
-      seLatitude: mapBoundingBox.se.lat,
-      seLongitude: mapBoundingBox.se.lng,
+      swLatitude: mapBoundingBox.sw.lat,
+      swLongitude: mapBoundingBox.sw.lng,
     })
   }
 

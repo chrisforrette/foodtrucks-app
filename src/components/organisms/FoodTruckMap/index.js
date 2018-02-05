@@ -51,13 +51,12 @@ export class FoodTruckFinder extends Component {
   }
 
   onMapMounted (ref) {
-    console.log('onMapMounted')
     // Store the raw Google map instance
-    this.googleMap = ref
+    
     if (ref) {
-      console.log('bounds', this.googleMap.getBounds())
+      this.googleMap = ref
+      this.fitMapBounds()
     }
-    this.fitMapBounds()
   }
 
   onBoundsChanged () {
@@ -67,7 +66,7 @@ export class FoodTruckFinder extends Component {
       mapCenter: this.googleMap.getCenter().toJSON(),
       mapBoundingBox: {
         ne: this.googleMap.getBounds().getNorthEast().toJSON(),
-        se: this.googleMap.getBounds().getSouthWest().toJSON()
+        sw: this.googleMap.getBounds().getSouthWest().toJSON()
       }
     }))
   }

@@ -24,7 +24,9 @@ export const colors = {
   // Grey
   darkGrey: '#333',
   grey: '#999',
-  lightGrey: '#eee'
+  lightGrey: '#eee',
+
+  blue: '#41a6f4'
 }
 
 export default {

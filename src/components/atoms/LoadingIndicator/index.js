@@ -18,6 +18,7 @@ const spin = keyframes`
 const Wrapper = styled.div`
   animation: ${spin} 1s linear infinite;
   height: ${({ size }) => size}px;
+  line-height: 0;
   opacity: ${({ isLoading }) => isLoading ? 1 : 0};
   ${({ fade }) => fade && 'transition: opacity 250ms ease;'}
   width: ${({ size }) => size}px;
@@ -45,7 +46,7 @@ const LoadingIndicator = props => {
 }
 
 LoadingIndicator.defaultProps = {
-  color: '#333',
+  color: '#fff',
   fade: false,
   isLoading: false,
   size: 16
