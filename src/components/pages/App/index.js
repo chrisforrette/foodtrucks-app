@@ -60,8 +60,11 @@ export class AppComponent extends Component {
 }
 
 AppComponent.propTypes = {
+  dispatch: PropTypes.func,
   foodTrucks: PropTypes.array,
-  dispatch: PropTypes.func
+  mapBoundingBox: PropTypes.object,
+  detailViewOpen: PropTypes.bool,
+  detailFoodTruckId: PropTypes.number
 }
 
 export default connect(

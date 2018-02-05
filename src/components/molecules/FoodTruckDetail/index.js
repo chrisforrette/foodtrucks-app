@@ -54,7 +54,6 @@ const Detail = styled.p`
   margin: 1em 0;
 `
 
-
 export const FoodTruckDetail = ({
   dispatch,
   foodTrucks,
@@ -65,7 +64,6 @@ export const FoodTruckDetail = ({
 
   if (foodTrucks && detailFoodTruckId) {
     foodTruck = foodTrucks.filter(foodTruck => foodTruck.id === detailFoodTruckId).pop()
-    console.log('foodTruck', foodTruck)
   }
   
   const onCloseClick = e => {

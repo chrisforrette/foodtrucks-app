@@ -5,15 +5,13 @@ import { fetchFoodTrucks } from '../../../actions'
 import Button from '../../atoms/Button'
 import LoadingIndicator from '../../atoms/LoadingIndicator'
 
-export const HEIGHT = '4em'
-
 const HeaderElement = styled.header`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   box-sizing: border-box;
   color: #fff;
   display: flex;
   flex-direction: row;
-  height: ${HEIGHT};
+  height: 4em;
   padding: 1em;
   text-align: center;
 `
