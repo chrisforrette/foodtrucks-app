@@ -20,7 +20,7 @@ const initialState = {
   mapZoom: 16,
   mapCenter: DEFAULT_CENTER,
   mapBoundsChanged: false,
-  detailViewOpen: true,
+  detailViewOpen: false,
   detailFoodTruckId: null
 }
 
