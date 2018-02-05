@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  line-height: 1.5em;
+  width: 100%;
+}
+
+<Component>
+  <ThemeProvider
+    theme={
+      Object {
+        "breakpoints": Object {
+          "large": "1200px",
+          "medium": "900px",
+          "small": "600px",
+          "xlarge": "1800px",
+        },
+        "colors": Object {
+          "darkGrey": "#333",
+          "grey": "#999",
+          "lightGrey": "#eee",
+        },
+        "fonts": Object {
+          "body": Object {
+            "primary": "\\"HelveticaNeue-Light\\", \\"Helvetica Neue Light\\", \\"Helvetica Neue\\", Helvetica, Arial, sans-serif",
+          },
+          "heading": Object {
+            "primary": "\\"HelveticaNeue-Bold\\", \\"Helvetica Neue Bold\\", \\"Helvetica Neue\\", Helvetica, Arial, sans-serif",
+          },
+        },
+      }
+    }
+  >
+    <styled.div>
+      <div
+        className="c0"
+      >
+        <header>
+          <h1>
+            Food Truck Finder
+          </h1>
+        </header>
+      </div>
+    </styled.div>
+  </ThemeProvider>
+</Component>
+`;
