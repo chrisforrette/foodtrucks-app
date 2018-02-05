@@ -16,7 +16,7 @@ const Header = styled.header`
 `
 
 const Icon = styled.img`
-  height: 1.75em;
+  height: 2em;
   margin-right: 1em;
 `
 
