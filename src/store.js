@@ -8,16 +8,16 @@ import { ENV } from './config'
 import reducer from './reducer'
 
 const DEFAULT_CENTER = {
-  // San Francisco-ish
-  lat: 37.7749,
-  lng: -122.4194
+  // Downtown San Francisco-ish
+  lat: 37.788365527147484,
+  lng: -122.3984358543396
 }
 
 const initialState = {
   loading: false,
   foodTrucks: null,
   mapBoundingBox: null,
-  mapZoom: 12,
+  mapZoom: 16,
   mapCenter: DEFAULT_CENTER,
   mapBoundsChanged: false
 }

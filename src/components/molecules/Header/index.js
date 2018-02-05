@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { fetchFoodTrucks } from '../../../actions'
 import Button from '../../atoms/Button'
 import LoadingIndicator from '../../atoms/LoadingIndicator'
 
@@ -41,15 +42,21 @@ const Right = Left.extend`
   text-align: right;
 `
 
-export const Header = ({ loading, mapBoundsChanged }) => <HeaderElement>
+export const Header = ({ dispatch, loading, mapBoundsChanged }) => <HeaderElement>
   <Left>
     <LoadingIndicatorElement fade isLoading={loading} />
     <Title>Food Truck Finder</Title>
   </Left>
-  <Right><Button disabled={loading} hide={!mapBoundsChanged}>Search This Area</Button></Right>
+  <Right>
+    <Button
+      onClick={() => dispatch(fetchFoodTrucks()) }
+      disabled={loading}
+      hide={!mapBoundsChanged}>Search This Area</Button>
+  </Right>
 </HeaderElement>
 
 
 export default connect(
-  ({ loading, mapBoundsChanged }) => ({ loading, mapBoundsChanged })
+  ({ loading, mapBoundsChanged }) => ({ loading, mapBoundsChanged }),
+  dispatch => ({ dispatch })
 )(Header)

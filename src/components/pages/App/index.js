@@ -24,7 +24,6 @@ const AppWrapper = styled.div`
 
 export class AppComponent extends Component {
   componentWillReceiveProps (nextProps) {
-    console.log('componentWillReceiveProps')
     const {
       dispatch,
       foodTrucks,
@@ -37,7 +36,6 @@ export class AppComponent extends Component {
   }
 
   render () {
-    console.log('render')
     const { foodTrucks } = this.props
 
     return <ThemeProvider theme={theme}>
