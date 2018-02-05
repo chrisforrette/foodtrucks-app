@@ -5,6 +5,7 @@ import {
 } from 'styled-components'
 import theme from '../../../styles/theme'
 import Header from '../../atoms/Header'
+import FoodTruckFinder from '../../organisms/FoodTruckFinder'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -21,5 +22,6 @@ const AppWrapper = styled.div`
 export default () => <ThemeProvider theme={theme}>
   <AppWrapper>
     <Header />
+    <FoodTruckFinder />
   </AppWrapper>
 </ThemeProvider>

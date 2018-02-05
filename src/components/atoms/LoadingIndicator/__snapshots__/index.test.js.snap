@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should accept a color 1`] = `
+<styled.div
+  color="#f60"
+  fade={false}
+  isLoading={false}
+  size={16}
+>
+  <svg
+    height="100%"
+    viewBox="0 0 32 32"
+    width="100%"
+  >
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "opacity": 0.25,
+          "stroke": "#f60",
+        }
+      }
+    />
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "stroke": "#f60",
+          "strokeDasharray": 80,
+          "strokeDashoffset": 55,
+        }
+      }
+    />
+  </svg>
+</styled.div>
+`;
+
+exports[`should accept a size 1`] = `
+<styled.div
+  color="#fff"
+  fade={false}
+  isLoading={false}
+  size={32}
+>
+  <svg
+    height="100%"
+    viewBox="0 0 32 32"
+    width="100%"
+  >
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "opacity": 0.25,
+          "stroke": "#fff",
+        }
+      }
+    />
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "stroke": "#fff",
+          "strokeDasharray": 80,
+          "strokeDashoffset": 55,
+        }
+      }
+    />
+  </svg>
+</styled.div>
+`;
+
+exports[`should be visible when loading is true 1`] = `
+<styled.div
+  color="#fff"
+  fade={false}
+  isLoading={false}
+  loading={true}
+  size={16}
+>
+  <svg
+    height="100%"
+    viewBox="0 0 32 32"
+    width="100%"
+  >
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "opacity": 0.25,
+          "stroke": "#fff",
+        }
+      }
+    />
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "stroke": "#fff",
+          "strokeDasharray": 80,
+          "strokeDashoffset": 55,
+        }
+      }
+    />
+  </svg>
+</styled.div>
+`;
+
+exports[`should include a fade transition when fade is true 1`] = `
+<styled.div
+  color="#fff"
+  fade={true}
+  isLoading={false}
+  size={16}
+>
+  <svg
+    height="100%"
+    viewBox="0 0 32 32"
+    width="100%"
+  >
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "opacity": 0.25,
+          "stroke": "#fff",
+        }
+      }
+    />
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "stroke": "#fff",
+          "strokeDasharray": 80,
+          "strokeDashoffset": 55,
+        }
+      }
+    />
+  </svg>
+</styled.div>
+`;
+
+exports[`should render a loading indicator 1`] = `
+<styled.div
+  color="#fff"
+  fade={false}
+  isLoading={false}
+  size={16}
+>
+  <svg
+    height="100%"
+    viewBox="0 0 32 32"
+    width="100%"
+  >
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "opacity": 0.25,
+          "stroke": "#fff",
+        }
+      }
+    />
+    <circle
+      cx="16"
+      cy="16"
+      fill="none"
+      r="14"
+      strokeWidth="4"
+      style={
+        Object {
+          "stroke": "#fff",
+          "strokeDasharray": 80,
+          "strokeDashoffset": 55,
+        }
+      }
+    />
+  </svg>
+</styled.div>
+`;
